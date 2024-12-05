@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/header/header";
+import Image from "next/image";
+import Footer from "@/components/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +31,24 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="w-full p-2 sm:text-sm text-xs bg-black text-white">
+          <div className="max-w-[1280px] flex justify-between items-center m-auto">
+            <span></span>
+            <p>
+              Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! &nbsp;
+              <span className="underline font-medium">ShopNow</span>
+            </p>
+            <div className="flex items-center">
+              English
+              <div className="w-6 h-6 overflow-hidden">
+                <Image src={"/icons/dropdown.png"} alt={"dropdonw"} width={600} height={600} className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
