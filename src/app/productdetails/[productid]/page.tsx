@@ -111,21 +111,12 @@ const foryou = [
   },
 ];
 
-// Define the props for the component
-type ProdDetailsProps = {
-  params: {
-    productid: string;
-  };
-};
-
-const ProdDetails = ({ params }: ProdDetailsProps) => {
-  // Find the product by its ID
-  const product = arr.find((data) => data.id.toString() === params.productid);
-
-  // Handle case when product is not found
-  if (!product) {
-    return <div>Product not found</div>;
-  }
+const ProdDetails = ({ params }: { params: { productid: string } }) => {
+    const product = arr.find((data) => data.id.toString() === params.productid);
+  
+    if (!product) {
+      return <div>Product not found</div>;
+    }
 
   return (
     <div className="max-w-[1280px] min-h-[80vh] p-3 m-auto">
